@@ -1,0 +1,56 @@
+{
+  "code": 0,
+  "data": {
+    "mine": {
+      "id": 24,
+      "number": 620987,
+      "nickname": "xiaodo",
+      "username": "xiaodo",
+      "sex": 1,
+      "avatar": "/timg.jpg",
+      "sign": "",
+      "last_login": 1549008700,
+      "status": "online"
+    },
+    "friend": [
+      {
+        "id": 4,
+        "userId": 24,
+        "status": 1,
+        "createTime": null,
+        "updateTime": null,
+        "list": [
+          {
+            "id": 23,
+            "email": "97404677@qq.com",
+            "number": 671069,
+            "password": "90ad862437e4233b9da128a94f46d811",
+            "username": "xiaodo",
+            "nickname": "xiaodo",
+            "birthday": "",
+            "bloodType": "",
+            "job": "小白",
+            "qq": 0,
+            "wechat": "",
+            "phone": "0",
+            "sign": "",
+            "sex": 1,
+            "avatar": "/timg.jpg",
+            "lastLogin": null,
+            "createTime": null,
+            "status": "offline",
+            "education": "",
+            "attention": 0,
+            "love": 0,
+            "online": false
+          }
+        ],
+        "groupname": "我的好友",
+        "online": 0
+      }
+    ],
+    "group": []
+  },
+  "msg": "",
+  "statusCode": 1000
+}

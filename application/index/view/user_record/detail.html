@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+{include file="public/header" /}
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row animated fadeInRight">
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>{$title}</h5>
+                    </div>
+                    <div>
+                        <div class="ibox-content no-padding border-left-right">
+                            <img alt="image" class="img-responsive" src="{$list.to.avatar}">
+                        </div>
+                        <div class="ibox-content profile-content">
+                            <h4><strong>{$list.to.nickname}</strong></h4>
+                            <p><i class="fa fa-map-marker"></i> {$list.tojob}</p>
+                            <h5>
+                                    关于他
+                                </h5>
+                            <p>
+                                {$list.to.sig}
+                            </p>
+                            <div class="row m-t-lg">
+                                <div class="col-sm-4">
+                                    <span class="bar">{$list.to.phone}</span>
+                                    <h5><strong>{$list.to.birthday}</strong> </h5>
+                                </div>
+                                <div class="col-sm-4">
+                                    <span class="line">关注</span><br>
+                                    <h5><strong>关注人数:{$list.to.wechat}</strong><br>获赞数{$list.to.qq}</h5>
+                                </div>
+                                <div class="col-sm-4">
+                                    <span class="bar">标签</span>
+                                    <h5><strong></strong> </h5>
+                                </div>
+                            </div>
+                            <!--<div class="user-button">-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-sm-6">-->
+                                        <!--<button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> 发送消息</button>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-sm-6">-->
+                                        <!--<button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-coffee"></i> 赞助</button>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>最新动态</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="profile.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="profile.html#">选项1</a>
+                                </li>
+                                <li><a href="profile.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div>
+                            <div class="feed-activity-list">
+                                {volist name="$list.predictions" id="vo"}
+                                <div class="feed-element">
+                                    <a href="profile.html#" class="pull-left">
+                                        <img alt="image" class="img-circle" src="{$list.head_img}">
+                                    </a>
+                                    <div class="media-body ">
+                                        <a href="#" onclick="open_s_small('预测话题','{:url("prediction",['id'=>$vo.id])}');">
+                                        <small class="pull-right text-navy">{$vo.create_time}</small>
+                                        <strong>{$list.nickname}</strong> 发布了  <strong>{$vo.title}</strong>.
+                                        <br>
+                                        <small class="text-muted">{$vo.content}</small>
+                                        </a>
+                                        <div class="actions">
+                                            <!--<a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞 </a>-->
+                                            <!--<a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> 收藏</a>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                {/volist}
+
+                            </div>
+
+                            <div class="feed-activity-list">
+                                {volist name="$list.userprediction" id="vo"}
+                                <div class="feed-element">
+                                    <a href="profile.html#" class="pull-left">
+                                        <img alt="image" class="img-circle" src="{$list.head_img}">
+                                    </a>
+                                    <div class="media-body ">
+                                        <small class="pull-right text-navy">{$vo.create_time}</small>
+                                        <a href="#" onclick="open_s_small('预测话题','{:url("prediction",['id'=>$vo.prediction_id])}');">
+                                        <strong>{$list.nickname}</strong> 参与了 <strong>{$vo.prediction.title}</strong>.
+                                        <br>
+                                        <small class="text-muted">{$vo.prediction.content}</small>
+                                    </a>
+                                        <div class="actions">
+                                            <!--<a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞 </a>-->
+                                            <!--<a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> 收藏</a>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                {/volist}
+
+                            </div>
+
+
+
+
+
+
+
+
+
+                            <!--<button class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> 显示更多</button>-->
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/js/plugins/layer/layer.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/common.js"></script>
+
+    <!-- 自定义js -->
+    <script src="js/content.js?v=1.0.0"></script>
+
+
+    <!-- Peity -->
+    <script src="js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Peity -->
+    <script src="js/demo/peity-demo.js"></script>
+
+    
+    
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+{include file="public/header" /}
+
+</head>
+
+<body class="gray-bg">
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <!--<form action="{:url('index')}" method="GET">-->
+    <!--<div class="input-group">-->
+    <!--<input placeholder="$keywords}" class="input form-control" name="keywords" type="text">-->
+    <!--<span class="input-group-btn">-->
+    <!--<button type="submit" class="btn btn btn-primary"> -->
+    <!--<i class="fa fa-search"></i> 搜索-->
+    <!--</button>-->
+    <!--</span>-->
+    <!--</div>                -->
+    <!--</form>-->
+
+    <div class="row">
+
+
+
+        {volist name="list" id="vo"}
+        <div class="col-sm-4">
+            <div class="contact-box">
+                <a href="{:url('detail',['id' => $vo.user.id])}">
+                    <div class="col-sm-4">
+                        <div class="text-center">
+                            <img alt="image" class="img-circle m-t-xs img-responsive" src="{$vo.user.avatar}">
+                            <div class="m-t-xs font-bold">{$vo.user.username}</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <h3><strong>{$vo.user.nickname}</strong></h3>
+                        <p><i class="fa fa-map-marker"></i> {$vo.user.job}</p>
+                        <address>
+                            <strong>{$vo.user.phone}.</strong><br>
+                            {$vo.user.sign}
+                        </address>
+                    </div>
+                </a>
+                <div class="clearfix">
+                    <button type="button" class="btn btn-primary btn-sm btn-block" onclick="chat('{$vo.user.nickname}','friend','{$vo.user.avatar}',{$vo.user.id});"><i class="fa fa-envelope"></i> 发送消息</button>
+                    <!--<button class="btn btn-primary " x-id="{$vo.id}" onclick="delData(this);"  type="button"><i class="fa fa-close"></i>&nbsp;删除-->
+                    <!---->
+                    <!--</button>-->
+                </div>
+
+            </div>
+        </div>
+        {/volist}
+
+
+
+    </div>
+</div>
+<script src="__STATIC__/js/plugins/layer/layer.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/common.js"></script>
+<script src="__STATIC__/js/bootstrap.min.js?v=3.3.6"></script>
+<!-- 自定义js -->
+<script src="__STATIC__/js/content.js?v=1.0.0"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('.contact-box').each(function () {
+            animationHover(this, 'pulse');
+        });
+    });
+</script>
+
+
+
+
+</body>
+
+</html>

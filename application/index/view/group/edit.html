@@ -1,0 +1,91 @@
+{include file="public/header" /}
+<link href="__STATIC__/css/plugins/blueimp/css/blueimp-gallery.min.css" rel="stylesheet"></head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+             <div class="col-sm-6" style="width: 100%;">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>{$title}</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form class="form-horizontal m-t" action="#" id="x-form">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">群名称：</label>
+                                <div class="col-sm-8">
+                                    <input id="title" name="gname" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error" value="{$list.gname}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">头像：</label>
+                                <div class="col-sm-8">
+                                    <input style="width:100%" id="file_upload" name="files"  type="file" multiple="true"  data-url="{:url('api/image/upload')}">
+                                    <div class="lightBoxGallery">
+                                        <a id="upload_org_code_img_pre" href="{$list.avatar}" title="图片" data-gallery="">
+                                            <img id="upload_org_code_img" src="{$list.avatar}" width="150" height="150">
+                                        </a>
+                                        <div id="blueimp-gallery" class="blueimp-gallery">
+                                            <div class="slides"></div>
+                                            <h3 class="title"></h3>
+                                            <a class="prev">‹</a>
+                                            <a class="next">›</a>
+                                            <a class="close">×</a>
+                                            <a class="play-pause"></a>
+                                            <ol class="indicator"></ol>
+                                        </div>
+                                    </div>
+
+                                    <input id="file_upload_image" name="avatar" type="hidden" multiple="true" value="{$list.avatar}">
+                                </div>
+                            </div>
+                            <!--生日-->
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">群简介：</label>
+                                <div class="col-sm-8">
+                                    <input id="blood_type" name="ginfo" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error" value="{$list.ginfo}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="checkbox" id="agree" name="agree"> 我已经认真阅读并同意《H+使用协议》
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <input name="id" value="{$list.id}" hidden="hidden">
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button  onclick="editData();return false;">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- 全局js -->
+    {include file="public/footer" /}
+    <script type="text/javascript" src="__STATIC__/js/image.js"></script>    
+    <!-- 自定义js -->
+    <script src="__STATIC__/js/content.js?v=1.0.0"></script>
+    <script src="__STATIC__/js/plugins/blueimp/jquery.blueimp-gallery.min.js"></script>
+
+    <!-- jQuery Validation plugin javascript-->
+    <script src="__STATIC__/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="__STATIC__/js/plugins/validate/messages_zh.min.js"></script>
+
+    <script src="__STATIC__/js/demo/form-validate-demo.js"></script>
+
+    
+    
+
+</body>
+
+</html>

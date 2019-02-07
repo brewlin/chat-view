@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- login -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!-- endlogin -->
+    <meta name="renderer" content="webkit">
+
+    <title> {$title}</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="__STATIC__/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/css/style.css?v=4.1.0" rel="stylesheet">
+    <!--im   -->
+    <link rel="stylesheet" href="__IM__/src/css/layui.css">
+    <link rel="stylesheet" href="__IM__/ws/src/css/contextMenu.css">
+    <script type="text/javascript" src="__IM__/ws/src/js/jquery.min.js" ></script>
+    <!--im end-->
+
+    <script src="__STATIC__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/js/bootstrap.min.js?v=3.3.6"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.min.js"></script>
+    <script>
+        var SCOPE = {
+            'add_url':'{:url("add")}',
+            'edit_url':'{:url("edit")}',
+            'del_url':'{:url("del")}',
+            'image_url':'{:url("app/api/tool/upload")}',
+            'status_url':'{:url("status")}',
+            'login_url':'{:url("Login/index")}',
+            'index_url':'{:url("Index/index")}',
+            'register_url':'{:url("Register/index")}',
+            'end_url':'{:url("end")}',
+        };
+    </script>
+
+
+
+    <link href="__STATIC__/css/login.css" rel="stylesheet">
+</head>
+
+<body class="signin">
+    <div class="signinpanel">
+        <div class="row">
+            <div class="col-sm-12">
+                <form id="x-form">
+                    <h4 class="no-margins">登录：</h4>
+                    <p class="m-t-md">登录到swoole-im平台</p>
+                    <input type="text" class="form-control uname" name="email" id="email" placeholder="email地址" />
+                    <input type="password" class="form-control pword m-b" name="password" id="password" placeholder="密码" />
+                    <a href="{:url('Register/index')}">没有账号？</a>
+                    <button class="btn btn-success btn-block" onclick="login();return false;">登录</button>
+                </form>
+            </div>
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; swoole-im平台
+            </div>
+        </div>
+    </div>
+
+    <!-- 全局js -->
+    <script src="__STATIC__/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/js/plugins/layer/layer.min.js"></script>
+    <!-- <script type="text/javascript" src="__STATIC__/js/jquery.min.js"></script> -->
+    <!-- 自定义js -->
+    <script src="__STATIC__/js/hAdmin.js?v=4.1.0"></script>
+    <script type="text/javascript" src="__STATIC__/js/index.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/common.js"></script>
+    <!--&lt;!&ndash; 第三方插件 &ndash;&gt;-->
+    <!--<script src="__STATIC__/js/plugins/pace/pace.min.js"></script>-->
+    <!--&lt;!&ndash; Flot &ndash;&gt;-->
+    <script src="__STATIC__/js/plugins/flot/jquery.flot.js"></script>
+    <script src="__STATIC__/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="__STATIC__/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="__STATIC__/js/plugins/flot/jquery.flot.pie.js"></script>
+</body>
+
+</html>

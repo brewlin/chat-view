@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+{include file="public/header" /}
+
+<link href="__STATIC__/css/plugins/blueimp/css/blueimp-gallery.min.css" rel="stylesheet"></head>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row animated fadeInRight">
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>{$title}</h5>
+                    </div>
+                    <div>
+                        <div class="ibox-content no-padding border-left-right">
+                            <div class="lightBoxGallery">
+                                <a  href="{$list.avatar}" title="图片" data-gallery="">
+                                    <img alt="image" class="img-responsive" src="{$list.avatar}">
+                                </a>
+                                <div id="blueimp-gallery" class="blueimp-gallery">
+                                    <div class="slides"></div>
+                                    <h3 class="title"></h3>
+                                    <a class="prev">‹</a>
+                                    <a class="next">›</a>
+                                    <a class="close">×</a>
+                                    <a class="play-pause"></a>
+                                    <ol class="indicator"></ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox-content profile-content">
+                            <h4><strong>姓名:</strong>{$list.nickname}</h4>
+                            <button type="button" class="btn btn-primary btn-sm btn-block" onclick="chat('{$list.nickname}','friend','{$list.avatar}',{$list.id});"><i class="fa fa-envelope"></i> 发送消息</button>
+                            <h4><strong>签名:</strong>{$list.sign}</h4>
+                            <h4><strong>职业:</strong>{$list.job}</h4>
+                            <h5><strong>关于我</strong></h5>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h4><strong>教育程度:</strong></h4>
+                                    <span class="bar">{$list.education}</span>
+                                    <h4><strong>生日:</strong></h4>
+                                    <h5><strong>{$list.birthday}</strong> </h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h5><strong>0</strong> 文章</h5>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5><strong>{$list.attention}</strong> 关注</h5>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5><strong>{$list.love}</strong>点赞</h5>
+                                </div>
+                            </div>
+                            <div class="user-button">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> 关注</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-coffee"></i> 点赞</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-8 ">
+                <div class="chat-discussion"  style="height: 500px">
+                    {volist name="record" id="vo"}
+                         {if condition="$vo.to_id eq $list.id"}
+                            <div class="chat-message">
+                                <img class="message-avatar" src="{$vo.mine.avatar}" alt="" style="float: right;">
+                                <div class="message" style="text-align: right;margin-right: 55px;">
+                                    <a class="message-author" href="#" >{$vo['mine']['nickname']}</a>
+                                    <span class="message-date" style="float: left;"> {$vo.mine.created_time} </span>
+                                    <span class="message-content">
+                                        {:parse($vo['data'])}
+                                    </span>
+                                </div>
+                            </div>
+                        {elseif condition="$vo.uid eq $list.id"}
+                            <div class="chat-message">
+                                <img style="float: left;height: 48px;width: 48px;" class="message-avata" src="{$vo.mine.avatar}" alt="">
+                                <div class="message" style="text-align: left;margin-left: 55px;">
+                                    <a class="message-author" href="#">{$vo['mine']['nickname']}</a>
+                                    <span class="message-date" style="float: right;"> {$vo['mine']['created_time']} </span>
+                                    <span class="message-content">
+                                        {:parse($vo['data'])}
+                                    </span>
+                                </div>
+                            </div>
+                        {/if}
+
+                    {/volist}
+                    {:pagination($record)}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/js/plugins/layer/layer.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/common.js"></script>
+    <script src="__STATIC__/js/plugins/blueimp/jquery.blueimp-gallery.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="js/content.js?v=1.0.0"></script>
+
+
+    <!-- Peity -->
+    <script src="js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Peity -->
+    <script src="js/demo/peity-demo.js"></script>
+    <script>
+        function picShow(img)
+        {
+            var data = {"title":"","id":123,"start":0,"data":[]};
+            data.data.push({"alt":"","pid":i,"src":img,"thumb":""});
+            layer.photos({
+                photos:data,
+                anim:5
+            });
+        }
+    </script>
+
+
+
+</body>
+
+</html>

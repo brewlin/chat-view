@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- login -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!-- endlogin -->
+    <meta name="renderer" content="webkit">
+
+    <title> {$title}</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="__STATIC__/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/css/style.css?v=4.1.0" rel="stylesheet">
+ <!--im   -->
+    <link rel="stylesheet" href="__IM__/src/css/layui.css">
+    <link rel="stylesheet" href="__IM__/ws/src/css/contextMenu.css">
+    <script type="text/javascript" src="__IM__/ws/src/js/jquery.min.js" ></script>
+    <!--im end-->
+
+    <script src="__STATIC__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/js/bootstrap.min.js?v=3.3.6"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.min.js"></script>
+    <script src="__IM__/src/layui.js"></script>
+    <script>
+        var SCOPE = {
+            'add_url':'{:url("add")}',
+            'edit_url':'{:url("edit")}',
+            'del_url':'{:url("del")}',
+            'image_url':'{:url("app/api/tool/upload")}',
+            'status_url':'{:url("status")}',
+            'login_url':'{:url("Login/index")}',
+            'index_url':'{:url("Index/index")}',
+            'register_url':'{:url("Register/index")}',
+            'logout_url':'{:url("logout")}',
+            'end_url':'{:url("end")}'
+        };
+        var token = sessionStorage.getItem('token');
+        var layim = parent.layui.layim;
+        if(!token){
+            sessionStorage.setItem('token', "{$token}");
+        }
+        //调用layerim聊天接口
+        function chat(name,type,avatar,id)
+        {
+            layim.chat({
+                name: name
+                , type: type
+                , avatar: avatar
+                , id: id
+            });
+        }
+        //公用修改
+        function editData(type)
+        {
+            url = SCOPE.edit_url;
+            data = $("#x-form").serializeArray();
+            request(url,data,'post','back');
+        }
+        // 封装公用的请求函数
+        function request(url,data,type,action)
+        {
+            $.ajax({
+                type:type,
+                url:url,
+                data:data,
+                success:function(data){
+                    if (action == 'back')
+                    {
+                        layer.msg(data.msg,{icon:1,time: 1000}, () => {
+                            window.history.go(-1);
+                    });
+                    } else
+                    {
+                        layer.msg(data.msg,{icon:1,time: 1000}, () => {
+                            location.reload();
+                    });
+                    }
+
+                },
+                'error':function(data){
+                    layer.msg(data.responseJSON.msg);
+                }
+            })
+        }
+    </script>
+    </body>
+
+</html>
+
+
+
+
