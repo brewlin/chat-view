@@ -8,6 +8,6 @@
 return [
     'token_expire_in'=>720000,
     'blair' => 1,//默认布莱尔得分
-    'ajaxUrl' => 'http://115.159.199.89:8090',/*域名*/
+    'ajaxUrl' => 'http://chat.huido.site:8090',/*域名*/
     'pageSize' => 10
 ];
