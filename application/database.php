@@ -17,9 +17,9 @@ return [
     // 数据库名
     'database'        => 'chat',
     // 用户名
-    'username'        => 'xiaodo',
+    'username'        => '',
     // 密码
-    'password'        => 'xiaodo',
+    'password'        => '',
     // 端口
     'hostport'        => '3306',
     // 连接dsn
