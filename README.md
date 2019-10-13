@@ -1,5 +1,9 @@
 # swoft-im & swoole-im 前端服务
-
+## @install
+```proto
+cd chat-view
+composer install
+```
 ## @nginx 部署
 ```proto
     server {
