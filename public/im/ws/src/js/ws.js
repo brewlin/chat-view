@@ -6,7 +6,7 @@
  * 6. 关掉页面时，清除缓存
  */
 
-var ws = new WebSocket('ws://chat.huido.site:8090');
+var ws = new WebSocket(wsUrl);
 
 //心跳
 // var heartCheck = {

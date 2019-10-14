@@ -35,10 +35,15 @@ class Login extends Controller
             $res = Request::post($loginUrl , $data);
             if(!empty($res) && $res->code == TokenEnum::Success)
             {
-                session(config('token.user') ,$res->data);
-                return success('登录成功' ,$res->data);
+                if($res->code == TokenEnum::Success){
+                    session(config('token.user') ,$res->data);
+                    return success('登录成功' ,$res->data);
+                }
+                return error($res->msg);
+            }else{
+                return error("服务内部错误");
             }
-            return error($res->msg);
+
 		}
 		return $this->fetch('',[
 			'title' => 'swoole-登陆'

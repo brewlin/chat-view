@@ -2,8 +2,8 @@
  * 配置文件
  * */
 
-var ajaxUrl = 'http://chat.huido.site:8090';/*域名*/
-
+var ajaxUrl = 'http://127.0.0.1:8090';/*域名*/
+var wsUrl = 'ws://127.0.0.1:8090';
 var loginUrl = SCOPE.login_url;
 
 var indexUrl = SCOPE.index_url;
